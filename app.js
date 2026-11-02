@@ -74,11 +74,16 @@ const heroes = [
 
 const storageKey = "dnd-chronik-v1";
 let storageWarning = false;
-let stored = {};
-try {
-  const parsed = JSON.parse(localStorage.getItem(storageKey) || "{}");
-  if (parsed && typeof parsed === "object" && !Array.isArray(parsed)) stored = parsed;
-} catch { storageWarning = true; }
+function readStored() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    storageWarning = true;
+    return {};
+  }
+}
+const stored = readStored();
 const validEntry = entry => entry && typeof entry === "object"
   && typeof entry.id === "string" && entry.id.startsWith("entry-")
   && typeof entry.title === "string" && entry.title.trim().length > 0 && entry.title.length <= 100
@@ -122,7 +127,20 @@ function toast(message) {
   toastTimer = setTimeout(() => $("#toast").classList.remove("visible"), 4000);
 }
 
-function persist() {
+function mergeStored(snapshot) {
+  const savedEntries = Array.isArray(snapshot.entries) ? snapshot.entries.filter(validEntry) : [];
+  entries = [...new Map([...savedEntries, ...entries].map(entry => [entry.id, entry])).values()];
+  if (Array.isArray(snapshot.bookmarks)) bookmarks = new Set(snapshot.bookmarks.filter(id => typeof id === "string"));
+  if (typeof snapshot.lastRead === "string") lastRead = snapshot.lastRead;
+}
+
+function persist(bookmarkId = null, readId = null) {
+  mergeStored(readStored());
+  if (bookmarkId) {
+    if (bookmarks.has(bookmarkId)) bookmarks.delete(bookmarkId);
+    else bookmarks.add(bookmarkId);
+  }
+  if (readId) lastRead = readId;
   try {
     localStorage.setItem(storageKey, JSON.stringify({ entries, bookmarks: [...bookmarks], lastRead }));
     return true;
@@ -133,9 +151,7 @@ function persist() {
 }
 
 function toggleBookmark(id) {
-  if (bookmarks.has(id)) bookmarks.delete(id);
-  else bookmarks.add(id);
-  const saved = persist();
+  const saved = persist(id);
   renderChapters();
   if (saved) toast(bookmarks.has(id) ? "Zur Merkliste hinzugefügt." : "Aus der Merkliste entfernt.");
 }
@@ -246,8 +262,7 @@ function openChapter(id) {
   const all = allChapters();
   const chapter = all.find(item => item.id === id);
   if (!chapter) return;
-  lastRead = id;
-  persist();
+  persist(null, id);
   const image = make("img", "reader-cover");
   image.src = chapter.image;
   image.alt = chapter.category === "interlude" ? "Eine gemütliche Taverne bei Kerzenlicht" : "Landschaft an der Schwertküste";
@@ -260,6 +275,7 @@ function openChapter(id) {
   story.append(...chapter.story.map(paragraph => make("p", "", paragraph)));
   const bottom = make("div", "reader-bottom");
   const save = make("button", "button secondary");
+  save.dataset.chapterId = id;
   const updateSave = () => {
     save.replaceChildren(icon("bookmark"), document.createTextNode(bookmarks.has(id) ? "Gemerkt" : "Kapitel merken"));
     save.setAttribute("aria-pressed", String(bookmarks.has(id)));
@@ -367,6 +383,17 @@ document.addEventListener("keydown", event => {
     event.preventDefault();
     if (view === "heroes") setView("chapters");
     $("#search").focus();
+  }
+});
+window.addEventListener("storage", event => {
+  if (event.key !== storageKey || event.storageArea !== localStorage) return;
+  mergeStored(readStored());
+  renderChapters();
+  const readerBookmark = $("#reader .reader-bottom .secondary");
+  if (readerBookmark) {
+    const saved = bookmarks.has(readerBookmark.dataset.chapterId);
+    readerBookmark.replaceChildren(icon("bookmark"), document.createTextNode(saved ? "Gemerkt" : "Kapitel merken"));
+    readerBookmark.setAttribute("aria-pressed", String(saved));
   }
 });
 renderChapters();
