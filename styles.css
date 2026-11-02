@@ -278,3 +278,9 @@ html, body { overflow-x: clip; }
 .ambient-orb { display: none; }
 
 .detail-quote-label {color:var(--gold);font-size:9px;font-weight:700;letter-spacing:.17em;margin-top:15px;}
+
+/* Öffentliche, bestätigte Charakter-Vorgeschichten im Gefährtenfenster */
+.detail-backstory { border-top: 1px solid rgba(219,185,120,.33); padding-top: 23px; margin: 25px 0 24px; }
+.detail-backstory h3 { font: 600 30px/1.05 var(--serif); color: var(--gold-light); margin: 0 0 13px; }
+.detail-backstory p { color: #d2d1c5; font-size: 13px; line-height: 1.85; margin: 0 0 12px; }
+.detail-backstory p:last-child { margin-bottom: 0; }

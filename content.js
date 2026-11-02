@@ -1,6 +1,6 @@
 /*
  * HIER ERWEITERST DU DEINE CHRONIK.
- * Eine Anleitung steht in README_START_HIER.md.
+ * Eine Anleitung steht in README.md.
  * Keine echten Geheimnisse oder privaten Informationen in diese Datei schreiben:
  * Wer die öffentliche Website besucht, kann auch ihren Quelltext lesen.
  */
@@ -25,6 +25,11 @@ window.CHRONIK = {
       quote: "Wenn man ganz genau zuhört, hat sogar ein Eichhörnchen etwas zu sagen.",
       description: "Ein gutherziger, leicht schrulliger Druide aus einer abgelegenen Waldhütte. Trägt Brille, einen großen Kräuterhut und jede Menge Fläschchen. P-Nut, sein erstaunlich kluges Eichhörnchen, ist meist an seiner Seite.",
       specialties: ["Heilung", "Naturmagie", "Tiere"],
+      backstory: [
+            "Seit mehr als 150 Jahren lebte Murtagh in einer kleinen Hütte tief im Wald. Eine ganze Horde Eichhörnchen teilte sich den Ort mit ihm, plünderte seine Vorräte und brachte seine Kräuter durcheinander. Eines von ihnen fiel besonders auf: P-Nut, größer und deutlich klüger als die anderen.",
+            "Um seine tierischen Mitbewohner endlich verstehen zu können, braute Murtagh einen Trank zum Sprechen mit Tieren. Die ernüchternde Erkenntnis: Die meisten Eichhörnchen dachten fast ausschließlich an Nüsse. P-Nut dagegen erwies sich als erstaunlich kenntnisreich, gab ungefragt Ratschläge und hasste ihren Namen.",
+            "Schließlich verließ Murtagh seine vertraute Waldhütte. Er sucht eine äußerst seltene Zutat für ein geheimnisvolles Rezept. Worum es sich dabei genau handelt, behält er lieber für sich – P-Nut begleitet ihn auf seiner Reise."
+      ],
       status: "portrait"
     },
     {
@@ -41,6 +46,10 @@ window.CHRONIK = {
       quote: "Die Welt ist groß. Selbst wenn man nur achtzig Zentimeter misst.",
       description: "Ein rosafarbener Grung mit großen Augen, violettblauer Sternenrobe und spitzem Zauberhut. Ein schwarzer Rabe begleitet ihn. Wissbegierig, magisch begabt und fasziniert von verbotenen Geheimnissen.",
       specialties: ["Arkane Magie", "Wissen", "Zauberbuch"],
+      backstory: [
+            "Gamakichi ist ein außergewöhnlicher Grung: Seine rosafarbene Haut macht ihn in seiner Heimat zu einer Besonderheit. Er verließ seinen Sumpf, um Magie zu erlernen, mit der er seine Heimat vor dem Austrocknen bewahren kann.",
+            "Neben diesem Ziel locken ihn Ruhm und Ehre. Als gelehriger Magier führt er ein Zauberbuch mit sich und interessiert sich besonders für Nekromantie. Ein schwarzer Rabe ist sein magischer Vertrauter."
+      ],
       status: "portrait"
     },
     {
@@ -57,6 +66,11 @@ window.CHRONIK = {
       quote: "Bei meinen Schafen hört der Spaß auf.",
       description: "Kräftige Zwergin mit wilder feuerroter Haarmähne und stechend grünen Augen. Aufgewachsen auf einem Bergbauernhof im Alptal. Schafhüten beruhigt sie – Banditen haben eher die gegenteilige Wirkung.",
       specialties: ["Kampfrausch", "Nahkampf", "Zähigkeit"],
+      backstory: [
+            "Heela wuchs auf einem zwergischen Bergbauernhof im Dorf Alptal auf. Schon früh hatte sie mit ihrer Wut zu kämpfen. Die harte Hofarbeit sollte helfen, doch erst beim Hüten der sanftmütigen Schafe fand sie wirkliche Ruhe. Auf den Feldern half sie mit der Sichel; abends kochte sie für ihre Familie deftige Eintöpfe.",
+            "Dann besetzten Banditen den Bergpass, blockierten die Handelswege und plünderten die Höfe. Als sie auch noch Heelas geliebte Schafe stehlen wollten, war es mit ihrer Geduld vorbei. Mit Langschwert und Schild schlug sie die Angreifer in die Flucht.",
+            "Heela erkannte, dass ihr Kampfrausch auch eine Waffe sein konnte. Nun zieht sie als Abenteurerin los: Sie möchte Kriegerin werden und einen Weg finden, den Bergpass endgültig von den Banditen zu befreien."
+      ],
       status: "pending"
     },
     {
@@ -73,6 +87,10 @@ window.CHRONIK = {
       quote: "Nicht jeder Weg muss im Licht liegen.",
       description: "Großgewachsener Tiefling mit grauer Haut, roten Augen und braunem Haar. Ein geübter Schurke mit krimineller Vergangenheit, flinkem Verstand und einem Talent für unauffällige Lösungen.",
       specialties: ["Heimlichkeit", "Geschick", "Sneak Attack"],
+      backstory: [
+            "Über Asphodels Leben vor seiner Reise ist bislang keine ausführliche Geschichte überliefert. Sein Charakterbogen nennt einen kriminellen Hintergrund und zeigt einen Schurken, der auf Heimlichkeit und Fingerfertigkeit spezialisiert ist.",
+            "Welche Erfahrungen ihn geprägt haben und wie sein Weg zu den anderen Gefährten führte, ist noch nicht erzählt. Hier ergänzen wir seine tatsächliche Vorgeschichte, sobald sie feststeht."
+      ],
       status: "pending"
     }
   ],
