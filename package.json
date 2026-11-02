@@ -1,0 +1,13 @@
+{
+  "name": "dnd-chronik",
+  "version": "1.0.0",
+  "description": "Ein interaktives Abenteuertagebuch aus den Vergessenen Reichen.",
+  "private": true,
+  "scripts": {
+    "start": "python3 -m http.server 3000 --bind 0.0.0.0",
+    "check": "node --check app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
