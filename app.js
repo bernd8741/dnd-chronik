@@ -111,10 +111,11 @@
           <h2 id="detail-title">${esc(c.name)}</h2><div class="detail-role">${esc(c.role)} · ${esc(c.characterClass)}</div>
           <p>${esc(c.description)}</p>
           <dl class="detail-facts"><div><dt>Volk</dt><dd>${esc(c.species)}</dd></div><div><dt>Größe</dt><dd>${esc(c.height)}</dd></div><div><dt>Alter</dt><dd>${esc(c.age)}</dd></div></dl>
+          ${Array.isArray(c.backstory) && c.backstory.length ? `
           <section class="detail-backstory" aria-label="Vorgeschichte von ${esc(c.name)}">
             <h3>Vorgeschichte</h3>
-            ${(Array.isArray(c.backstory) ? c.backstory : []).map(p => `<p>${esc(p)}</p>`).join("")}
-          </section>
+            ${c.backstory.map(p => `<p>${esc(p)}</p>`).join("")}
+          </section>` : ""}
           <div class="detail-quote-label">LEITSPRUCH · ENTWURF</div><blockquote>„${esc(c.quote)}“</blockquote>
           <div class="detail-specialties">${c.specialties.map(t => `<span>${esc(t)}</span>`).join("")}</div>
         </div>
