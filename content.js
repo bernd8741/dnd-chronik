@@ -87,7 +87,10 @@ window.CHRONIK = {
       quote: "Nicht jeder Weg muss im Licht liegen.",
       description: "Ein hochgewachsener Tiefling-Schurke mit grauer Haut, roten Augen, einer markanten goldenen Maske und einem dunklen Umhang. Seine Stärken liegen in Heimlichkeit und Fingerfertigkeit.",
       specialties: ["Heimlichkeit", "Geschick", "Sneak Attack"],
-      backstory: [],
+      backstory: [
+        "Asphodel ist ein geheimnisvoller Tiefling, der durch die Welt zieht. Er trägt eine auffällige goldene Maske und hält sich über seine Vergangenheit bedeckt. Über seinen wahren Namen spricht er nicht.",
+        "Als Schurke ist er mit den Schattenseiten des Lebens vertraut. Er verlässt sich auf Geschick, Heimlichkeit und Täuschung, bleibt meist höflich und verschwiegen – und verliert seinen eigenen Vorteil nur selten aus den Augen."
+      ],
       status: "pending"
     }
   ],
