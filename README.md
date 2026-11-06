@@ -1,25 +1,13 @@
-# dnd-chronik
+# Archivierter Entwurfsbranch – nicht verwenden
 
-Ein interaktives D&D-Abenteuertagebuch in deutscher Sprache: sechs Beispielkapitel aus den Vergessenen Reichen, eigene Illustrationen und vier Charakterporträts.
+Dieser Branch `copilot/dnd-abenteuertagebuch` enthielt einen frühen Website-Prototyp mit **fiktiven Beispielkapiteln**. Er ist **nicht** der aktuelle Stand der Kampagne und wird nicht veröffentlicht.
 
-## Starten
+Die alte Code-Kopie wurde am 06.11.2026 aus dem Arbeitsbaum entfernt, damit nur ein aktueller Veröffentlichungsstand existiert. Die frühere Version bleibt bei Bedarf über die Git-Commit-Historie auffindbar.
 
-Voraussetzungen: Python 3; für die npm-Kommandos zusätzlich Node.js und npm.
+## Maßgebliche Stellen
 
-```sh
-npm start
-```
+- **Öffentliche Website und veröffentlichte Charakterprofile:** [main](https://github.com/bernd8741/dnd-chronik/tree/main)  
+- **Bestätigte Ereignisse und Kampagneninformationen:** [kampagnenstatus](https://github.com/bernd8741/dnd-chronik/tree/kampagnenstatus/Kampagnenstatus.md)  
+- **Live-Seite:** https://bernd8741.github.io/dnd-chronik/  
 
-Anschließend http://localhost:3000 öffnen. Alternativ direkt `python3 -m http.server 3000` im Projektverzeichnis ausführen. Es sind keine Paketinstallation und kein Build notwendig. Die JavaScript-Syntax lässt sich mit `npm run check` prüfen.
-
-## Funktionen
-
-- Kapitel lesen und zwischen aufeinanderfolgenden Kapiteln wechseln.
-- Chronik nach Text und Ort durchsuchen, nach Abenteuer oder Zwischenspiel filtern.
-- Heldenporträts und Hintergrundgeschichten entdecken.
-- Kapitel merken und eigene Tagebucheinträge verfassen.
-- Eigene Einträge über „Neuer Eintrag → Einträge exportieren“ als JSON sichern.
-
-Eigene Einträge, Merkliste und zuletzt gelesenes Kapitel werden ausschließlich im lokalen Browserspeicher gespeichert. Sie werden nicht zwischen Geräten synchronisiert. Beim Löschen der Browserdaten gehen sie verloren; der JSON-Export dient als externe Sicherung (kein Import vorhanden). Ohne verfügbaren Browserspeicher funktioniert die Anwendung für die aktuelle Sitzung weiter.
-
-Alle Illustrationen liegen im Verzeichnis `assets`. Es werden ausschließlich lokale Ressourcen und Systemschriften verwendet; externe Dienste sind nicht erforderlich.
+**Nicht** für neue Kapitel, Bilder oder Charakterdaten verwenden. Neue Websiteänderungen nur auf `main` und nach Freigabe; Kampagnenstatus ausschließlich in `Kampagnenstatus.md` pflegen.
