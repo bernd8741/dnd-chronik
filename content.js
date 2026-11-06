@@ -82,15 +82,12 @@ window.CHRONIK = {
       age: "666 Jahre",
       height: "192 cm",
       image: "",
-      imageAlt: "Porträt folgt",
+      imageAlt: "Porträt des maskierten Tieflings Asphodel folgt",
       color: "steel",
       quote: "Nicht jeder Weg muss im Licht liegen.",
-      description: "Großgewachsener Tiefling mit grauer Haut, roten Augen und braunem Haar. Ein geübter Schurke mit krimineller Vergangenheit, flinkem Verstand und einem Talent für unauffällige Lösungen.",
+      description: "Ein hochgewachsener Tiefling-Schurke mit grauer Haut, roten Augen, einer markanten goldenen Maske und einem dunklen Umhang. Seine Stärken liegen in Heimlichkeit und Fingerfertigkeit.",
       specialties: ["Heimlichkeit", "Geschick", "Sneak Attack"],
-      backstory: [
-            "Über Asphodels Leben vor seiner Reise ist bislang keine ausführliche Geschichte überliefert. Sein Charakterbogen nennt einen kriminellen Hintergrund und zeigt einen Schurken, der auf Heimlichkeit und Fingerfertigkeit spezialisiert ist.",
-            "Welche Erfahrungen ihn geprägt haben und wie sein Weg zu den anderen Gefährten führte, ist noch nicht erzählt. Hier ergänzen wir seine tatsächliche Vorgeschichte, sobald sie feststeht."
-      ],
+      backstory: [],
       status: "pending"
     }
   ],
