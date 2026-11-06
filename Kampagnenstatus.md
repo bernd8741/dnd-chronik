@@ -34,12 +34,14 @@ Die Werte oben stammen aus den zuletzt vorliegenden Charakterbögen; situative T
 - Heela: `Heela_L2_Character-Sheet.pdf`
 - Asphodel: **`Aspodel_261030_164535_rev02.pdf`** (aktualisierte Fassung; ältere Versionen nicht verwenden)
 
-### Verbindliche Referenzbilder (ChatGPT-Projektdateien)
+### Verbindliche Referenzbilder
 
-- Murtagh: `Murtagh - Referenzbild.png`
-- Gamakichi: `Gamakichi-Referenzbild.jpeg`
-- Heela: `Heela - Referenzbild.png`
-- Asphodel: `Asphodel -Referenzbild.png`
+- **Murtagh:** ChatGPT-Projektdatei `Murtagh - Referenzbild.png`.
+- **Gamakichi (NEUE verbindliche Fassung, bestätigt am 06.11.2026):** [`assets/gamakichi.webp` auf `main`](https://github.com/bernd8741/dnd-chronik/blob/main/assets/gamakichi.webp). Das neue Porträt zeigt den rosafarbenen Grung mit violettem Sternenhut und -mantel, Stab mit leuchtender violetter Kugel und schwarzem Raben. **Die ältere Projektdatei `Gamakichi-Referenzbild.jpeg` ist für zukünftige Illustrationen überholt.** Aus GitHub die aktuelle Bilddatei abrufen.
+- **Heela:** ChatGPT-Projektdatei `Heela - Referenzbild.png`.
+- **Asphodel:** ChatGPT-Projektdatei `Asphodel -Referenzbild.png`.
+
+**Bild- und Kapitelablage:** Freigegebene Website-Bilder liegen einmalig unter `main/assets/`; aktuelle Gruppen-Tavernenszene: [`assets/tavern.webp`](https://github.com/bernd8741/dnd-chronik/blob/main/assets/tavern.webp). Keine parallele Bildkopie im Branch `kampagnenstatus` pflegen.
 
 Für Illustrationen gilt zusätzlich die Projektdatei `BILDSTIL_CHRONIK.md` (Chroniken-Stil – Cinematic Fantasy Storybook). Die vier Charaktere sollen in Gruppenbildern mit korrekten Größenverhältnissen gezeigt werden; Asphodels Gesicht bleibt hinter der goldenen Maske verborgen.
 
@@ -71,9 +73,11 @@ Seither wandert er umher und lebt von Diebstahl, Täuschung und zwielichtigen Ge
 
 ## Bisherige tatsächlich gespielte Sitzungen
 
-**Bislang sind in diesem zentralen Status keine einzelnen Sitzungsereignisse vom Spieler bestätigt und protokolliert.**
+**Bestätigter Kampagnenauftakt (vom Spieler am 06.11.2026 freigegeben; Sitzungsdatum unbekannt):** Die vier Fremden **Murtagh, Gamakichi, Heela und Asphodel** gelangten unabhängig voneinander in dieselbe **Taverne**. Der Spieler hat den Text als Einstieg aus Murtaghs Perspektive und das Gruppenbild für **Kapitel I** der Website freigegeben. Der vorherige Zwei-Personen-Tavernenentwurf wurde ersetzt.
 
-> Das auf der Website sichtbare Tavernenkapitel mit Murtagh und Gamakichi ist ein **Beispielentwurf**, keine bestätigte Spielhandlung. Der bestehende Prolog basiert auf Murtaghs bestätigter öffentlicher Vorgeschichte.
+**Noch offen:** Ob der veröffentlichte Auftakt bereits einer nummerierten Spielsitzung entspricht; tatsächliches Spielsitzungsdatum, Tavernenname und -ort, Gespräche, weitere konkrete Ereignisse und Entscheidungen. Bislang ist **keine vollständige Spielsitzung mit Detailereignissen** dokumentiert. Der bestehende Prolog basiert auf Murtaghs Vorgeschichte.
+
+**Veröffentlichte Fassung:** [Kapitel I – Die Chroniken der vier Gefährten](https://bernd8741.github.io/dnd-chronik/). Die literarische Einleitung ist kein Beleg für zusätzliche Quests, Beute, Kämpfe oder erfundene Ereignisse.
 
 ## Persönliche Ziele und offene Anliegen aus den Vorgeschichten
 
@@ -86,7 +90,8 @@ Seither wandert er umher und lebt von Diebstahl, Täuschung und zwielichtigen Ge
 
 ## Bekannte NSC, Orte und Hinweise aus gespielten Sitzungen
 
-*Noch keine Spielsitzungsangaben erfasst.*  
+**Aus dem bestätigten Auftakt:** Eine Taverne, Name und geografischer Ort noch unbekannt. Weitere NSC aus diesem Auftakt wurden nicht genannt.
+
 Aus den bestätigten Vorgeschichten bekannt: Waldhütte von Murtagh, Heimat-Sumpf von Gamakichi, Alptal und der bedrohte Bergpass von Heela.
 
 ## Gruppeninventar, Beute und wichtige Gegenstände
@@ -96,12 +101,24 @@ Aus den bestätigten Vorgeschichten bekannt: Waldhütte von Murtagh, Heimat-Sump
 ## Offene Entscheidungen und nächste Spielsitzung
 
 - **Datum der nächsten Sitzung:** Noch nicht angegeben.
-- **Letzter bestätigter Spielstand:** Noch nicht erfasst.
+- **Letzter bestätigter Erzählstand:** Die vier Gefährten haben unabhängig voneinander dieselbe Taverne erreicht; Verlauf danach offen. Noch kein vollständiges Sitzungsprotokoll.
 - **Offene Entscheidungen:** Noch nicht erfasst.
 
 ## Fortlaufendes Sitzungsprotokoll
 
 Neue bestätigte Sitzungen **an diese Datei anhängen**; die frühere Geschichte nicht überschreiben oder erfinden. Änderungen an Quests, Inventar und Ressourcen zugleich oben im aktuellen Status nachführen.
+
+### Bestätigter Erzähleinstieg – am 06.11.2026 freigegeben; Sitzungsdatum offen
+
+- **Tatsächlich bestätigt:** Die Wege von Murtagh, Gamakichi, Heela und Asphodel führen sie unabhängig voneinander in dieselbe Taverne.
+- **Beteiligte Charaktere:** Murtagh, Gamakichi, Heela, Asphodel.
+- **Ort:** Taverne; Name und genauer Ort unbekannt.
+- **NSC / Gespräche / Begegnungsdetails:** Noch nicht überliefert.
+- **Funde / Beute / Inventaränderungen:** Keine Angaben; daraus folgt keine bestätigte Änderung.
+- **Neue oder abgeschlossene Quests:** Keine Angaben.
+- **Charakterfortschritt / Stufenaufstiege:** Keine Angaben; keine Änderungen.
+- **Website-Veröffentlichung:** **Ja, vom Spieler ausdrücklich freigegeben.** Kapitel I, „Die Chroniken der vier Gefährten“, mit neuem Tavernenbild aller vier Gefährten; Branch `main`.
+- **Einordnung:** Ein bestätigter Story-Auftakt, noch keine als vollständig protokolliert geltende Spielsession. Keine weitergehenden Handlungsdetails hinzufügen.
 
 ### Vorlage für Sitzung [Nummer] – [Datum]
 
