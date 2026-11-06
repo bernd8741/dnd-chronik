@@ -1,36 +1,21 @@
-# Die Chronik der vier Gefährten
+# Kampagnenstatus – Die Chronik der vier Gefährten
 
-Illustriertes D&D-Tagebuch von **Murtagh, Gamakichi, Heela und Asphodel**.
+**Zentrale Datei:** [Kampagnenstatus.md](./Kampagnenstatus.md)
 
-**Live-Website:** https://bernd8741.github.io/dnd-chronik/
+Dies ist der **Arbeitsbranch** für die fortlaufende D&D-2024-Kampagnendokumentation. Hier wird ausschließlich der bestätigte Kampagnenstand geführt. Neue Sitzungen werden chronologisch ergänzt; alte bestätigte Einträge bleiben erhalten.
 
-## Projektstruktur
+## Verantwortliche Quellen
+- **Spielereignisse, Quests, Beute, NSC, Orte:** `Kampagnenstatus.md` in diesem Branch. Vor jeder Aktualisierung die neueste Fassung auf GitHub abrufen.
+- **Charakterwerte, Zauber, Ausrüstung:** jeweils aktuellster bestätigter Charakterbogen in den ChatGPT-Projektdateien; siehe Quellenliste im Kampagnenstatus.
+- **Aussehen und Illustrationen:** vier verbindliche Projekt-Referenzbilder und `BILDSTIL_CHRONIK.md` in den Projektdateien.
+- **Öffentliche Website und freigegebene Kapitel:** ausschließlich Branch [main](https://github.com/bernd8741/dnd-chronik/tree/main). Die Website-Daten liegen dort in `content.js`; **hier keine Kopie davon führen**.
 
-| Datei | Inhalt |
-|---|---|
-| `index.html` | Seitenaufbau und Navigation |
-| `styles.css` | Fantasy-Design und mobile Darstellung |
-| `app.js` | Kapitelwechsel, Charakterfenster, Zeitleiste und Bildansicht |
-| `content.js` | Kapitel, Session-Termine, Chronik und öffentliche Charakterprofile |
-| `assets/` | Illustrationen, Porträts und Favicon |
+## Arbeitsregeln
+1. Gespielte Ereignisse nicht erfinden. Bestätigtes, Entwürfe, offene Fragen und Spoiler klar trennen.
+2. Vor Änderungen `Kampagnenstatus.md` neu laden, nur Freigegebenes ergänzen, nach dem Commit erneut prüfen.
+3. Dieser Branch ist **öffentlich einsehbar**. Ein eigener Branch ist kein Geheimnisschutz. Geheimnisse nicht ungefragt in öffentliche Website-Dateien übertragen.
+4. Website und Branch `main` nur nach ausdrücklicher Freigabe verändern.
 
-Die öffentlichen Charakterprofile in `content.js` enthalten das Feld `backstory`: eine Liste bestätigter Vorgeschichts-Absätze. Sie werden im Charakterfenster angezeigt. Keine Geheimnisse oder unbestätigten Ereignisse hinzufügen.
+**Öffentliche Website:** https://bernd8741.github.io/dnd-chronik/
 
-Die veraltete Offline-Vorschau und das ursprüngliche ZIP-Archiv wurden aus dem aktuellen Repository entfernt. Ältere Stände sind weiterhin über die Git-Versionshistorie wiederherstellbar.
-
-## Neue Kapitel hinzufügen
-Schreibe nach jeder Session deinem ChatGPT-D&D-Chat, was passiert ist. ChatGPT kann daraus ein Kapitel und passende Szenenbilder machen und nach deiner Freigabe die passenden Dateien im verbundenen GitHub-Repository aktualisieren.
-
-Ein Kapitel in `content.js` hat Felder wie `id`, `label`, `title`, `subtitle`, `date` (YYYY-MM-DD), `time` (HH:MM), `session`, `inWorldDate`, `location`, `image`, `summary` und `paragraphs`.
-
-## Design-Änderungen
-Schicke einen Screenshot mit gewünschter Änderung direkt im Chat. Für größere Umbauten erst einen **Entwurf** (Vorschau oder separater Branch) erstellen; Veröffentlichung erst nach Bestätigung. GitHub bewahrt frühere Versionen auf.
-
-## Veröffentlichung
-GitHub Pages veröffentlicht automatisch Änderungen auf `main` aus dem Stammverzeichnis; der Link bleibt unverändert. ZIP-Uploads sind nicht mehr erforderlich.
-
-## Datenschutz / Spoiler
-Dieses Repository und die Website sind **öffentlich**. Geheime Charakterinformationen, unveröffentlichte Handlungsdetails und persönliche Daten gehören nicht in die Website-Dateien.
-
-## Stand des Tagebuchs
-Der Prolog ist öffentlich und das Tavernenkapitel als **Beispielentwurf** gekennzeichnet. Die finalen Porträts von Heela und Asphodel fehlen noch.
+*Bereinigt am 06.11.2026: Alle doppelten Website-Dateien aus diesem Branch entfernt. Frühere Fassungen bleiben über die Git-Historie nachvollziehbar.*
