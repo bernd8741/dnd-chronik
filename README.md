@@ -33,4 +33,4 @@ GitHub Pages veröffentlicht automatisch Änderungen auf `main` aus dem Stammver
 Dieses Repository und die Website sind **öffentlich**. Geheime Charakterinformationen, unveröffentlichte Handlungsdetails und persönliche Daten gehören nicht in die Website-Dateien.
 
 ## Stand des Tagebuchs
-Der Prolog ist öffentlich und das Tavernenkapitel als **Beispielentwurf** gekennzeichnet. Die finalen Porträts von Heela und Asphodel fehlen noch.
+Der Prolog ist öffentlich und das Tavernenkapitel als **Beispielentwurf** gekennzeichnet. Die Porträts aller vier Gefährten sind inzwischen eingebunden. Asphodels öffentliches Profil enthält nur eine spoilerfreie Hintergrundbeschreibung.
