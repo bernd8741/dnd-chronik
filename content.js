@@ -60,8 +60,8 @@ window.CHRONIK = {
       characterClass: "Barbarin · Stufe 2",
       age: "135 Jahre",
       height: "120 cm",
-      image: "",
-      imageAlt: "Porträt folgt",
+      image: "assets/heela.webp",
+      imageAlt: "Heela, rothaarige Zwergin mit Fellrüstung und Streitaxt zwischen ihren Schafen am Gebirgshof",
       color: "ember",
       quote: "Bei meinen Schafen hört der Spaß auf.",
       description: "Kräftige Zwergin mit wilder feuerroter Haarmähne und stechend grünen Augen. Aufgewachsen auf einem Bergbauernhof im Alptal. Schafhüten beruhigt sie – Banditen haben eher die gegenteilige Wirkung.",
@@ -71,7 +71,7 @@ window.CHRONIK = {
             "Dann besetzten Banditen den Bergpass, blockierten die Handelswege und plünderten die Höfe. Als sie auch noch Heelas geliebte Schafe stehlen wollten, war es mit ihrer Geduld vorbei. Mit Langschwert und Schild schlug sie die Angreifer in die Flucht.",
             "Heela erkannte, dass ihr Kampfrausch auch eine Waffe sein konnte. Nun zieht sie als Abenteurerin los: Sie möchte Kriegerin werden und einen Weg finden, den Bergpass endgültig von den Banditen zu befreien."
       ],
-      status: "pending"
+      status: "portrait"
     },
     {
       id: "asphodel",
@@ -81,8 +81,8 @@ window.CHRONIK = {
       characterClass: "Schurke · Stufe 2",
       age: "666 Jahre",
       height: "192 cm",
-      image: "",
-      imageAlt: "Porträt des maskierten Tieflings Asphodel folgt",
+      image: "assets/asphodel.webp",
+      imageAlt: "Asphodel, maskierter Tiefling-Schurke mit goldener Maske und dunkler Kleidung",
       color: "steel",
       quote: "Nicht jeder Weg muss im Licht liegen.",
       description: "Ein hochgewachsener Tiefling-Schurke mit grauer Haut, roten Augen, einer markanten goldenen Maske und einem dunklen Umhang. Seine Stärken liegen in Heimlichkeit und Fingerfertigkeit.",
@@ -91,7 +91,7 @@ window.CHRONIK = {
         "Asphodel ist ein geheimnisvoller Tiefling, der durch die Welt zieht. Er trägt eine auffällige goldene Maske und hält sich über seine Vergangenheit bedeckt. Über seinen wahren Namen spricht er nicht.",
         "Als Schurke ist er mit den Schattenseiten des Lebens vertraut. Er verlässt sich auf Geschick, Heimlichkeit und Täuschung, bleibt meist höflich und verschwiegen – und verliert seinen eigenen Vorteil nur selten aus den Augen."
       ],
-      status: "pending"
+      status: "portrait"
     }
   ],
 
