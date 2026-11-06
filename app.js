@@ -41,7 +41,7 @@
     $("#reader-title").textContent = chapter.title;
     $("#reader-subtitle").textContent = chapter.subtitle || "";
     $("#reader-prose").innerHTML = (chapter.state === "draft" ? '<div class="draft-indicator">✧ Szenenentwurf · noch keine bestätigte Spielhandlung</div>' : "")
-      + (chapter.paragraphs || []).map(paragraph => `<p>${esc(paragraph)}</p>`).join("");
+      + (chapter.paragraphs || []).map(paragraph => `<p>${esc(paragraph).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</p>`).join("");
     $("#reader-location").textContent = chapter.location || "Ort unbekannt";
     $("#prev-chapter").disabled = active === 0;
     $("#next-chapter").disabled = active === data.chapters.length - 1;

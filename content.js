@@ -43,7 +43,7 @@ window.CHRONIK = {
       height: "80 cm",
       sheet: {"ac":12,"hp":12,"speed":"7,5 m","abilities":{"STÄ":8,"GES":14,"KON":13,"INT":17,"WEI":13,"CHA":10},"features":["Zauberbuch","Rituale","Arkane Erholung"]},
       image: "assets/gamakichi.webp",
-      imageAlt: "Rosafarbener Froschmagier Gamakichi im violetten Sternenumhang mit Zauberstab und schwarzem Raben",
+      imageAlt: "Gamakichi, rosafarbener Grung-Magier mit violettem Sternenhut, Zauberstab mit violetter Kristallkugel und schwarzem Raben",
       color: "violet",
       quote: "Die Welt ist groß. Selbst wenn man nur achtzig Zentimeter misst.",
       description: "Ein rosafarbener Grung mit großen Augen, violettblauer Sternenrobe und spitzem Zauberhut. Ein schwarzer Rabe begleitet ihn. Wissbegierig, magisch begabt und fasziniert von verbotenen Geheimnissen.",
@@ -128,23 +128,29 @@ window.CHRONIK = {
     {
       id: "kapitel-01",
       label: "Kapitel I",
-      title: "Eine Begegnung bei Kerzenschein",
-      subtitle: "Zwei Fremde, eine Taverne und ein ungewöhnlicher Anfang.",
+      title: "Die Chroniken der vier Gefährten",
+      subtitle: "Vier Wege. Eine Begegnung. Ein ungeschriebenes Schicksal.",
       date: null,
       time: null,
-      dateLabel: "Sessiondatum noch offen",
-      session: "Session 1 · Entwurf",
-      inWorldDate: "Noch offen",
-      location: "Eine Taverne · Name noch offen",
+      dateLabel: "Datum noch offen",
+      session: "Auftakt · bestätigt",
+      inWorldDate: "Nicht überliefert",
+      location: "Eine Taverne · Name und Ort noch unbekannt",
       image: "assets/tavern.webp",
-      imageAlt: "Murtagh mit P-Nut und Gamakichi mit Raben an einem Tisch in einer Taverne",
-      state: "draft",
-      summary: "Murtagh und Gamakichi begegnen einander in einer Taverne. Der Rest der Geschichte folgt nach eurer Spielrunde.",
+      imageAlt: "Die vier Gefährten am Tisch einer warm beleuchteten Taverne: Asphodel, Gamakichi mit Raben, Murtagh mit P-Nut und Heela",
+      state: "story",
+      summary: "Vier Fremde finden unabhängig voneinander ihren Weg in dieselbe Taverne – hier beginnt die Geschichte der vier Gefährten.",
       paragraphs: [
-        "Eine Taverne, warmer Kerzenschein und zwei Gestalten, die unterschiedlicher kaum sein könnten: ein kleiner Waldgnom mit Eichhörnchen und ein noch kleinerer Grung-Magier mit Sternenhut und Raben.",
-        "Dieses Kapitel ist ein BEISPIELENTWURF zur Tavernenszene aus eurem Bild. Es beschreibt noch keine bestätigten Ereignisse der Kampagne.",
-        "Nach eurer ersten gemeinsamen Session ersetzen wir diesen Absatz durch das tatsächliche Geschehen: Was wurde gesagt? Welche Hinweise gab es? Welche Entscheidungen trafen die Gefährten – und welche Katastrophe hat P-Nut schon kommen sehen?"
+        "Manchmal beginnen die größten Geschichten nicht mit einer Schlacht, einer Prophezeiung oder einem heldenhaften Entschluss.",
+        "Manchmal beginnen sie einfach in einer Taverne.",
+        "Vier Fremde, jeder mit seiner eigenen Vergangenheit, seinen eigenen Zielen und Gründen, unterwegs zu sein. Ihre Wege führten sie unabhängig voneinander an denselben Ort.",
+        "Ein Zufall? Vielleicht.",
+        "Noch ahnte keiner von ihnen, dass aus vier einzelnen Wegen bald ein gemeinsamer werden sollte.",
+        "**Ich bin Murtagh, ein einfacher Waldgnom, und dies ist die Geschichte von vier ungewöhnlichen Gefährten.**",
+        "Was uns erwartet, weiß ich nicht.",
+        "Aber eines weiß ich gewiss: **Jede Geschichte muss irgendwo beginnen. Und unsere beginnt hier.**"
       ]
+
     }
   ]
 };

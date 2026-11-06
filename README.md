@@ -41,4 +41,4 @@ Dieses Repository und die Website sind **öffentlich**. Geheime Charakterinforma
 - **Sicherheit:** Das ganze Repository, auch `kampagnenstatus`, ist öffentlich einsehbar. Keine DM-Geheimnisse in die Website oder andere Veröffentlichungen übernehmen.
 
 ## Stand des Tagebuchs
-Der Prolog ist öffentlich und das Tavernenkapitel als **Beispielentwurf** gekennzeichnet. Die Porträts aller vier Gefährten sind inzwischen eingebunden. Asphodels öffentliches Profil enthält nur eine spoilerfreie Hintergrundbeschreibung.
+Der Prolog und das freigegebene **Kapitel I** (Auftakt der vier Gefährten in einer Taverne) sind veröffentlicht. Die Porträts aller vier Gefährten sind eingebunden. Asphodels öffentliches Profil bleibt spoilerfrei. Gamakichis aktuelle verbindliche Bildreferenz ist `assets/gamakichi.webp`; das vorherige Bild wurde ersetzt. Das aktuelle Tavernen-Gruppenbild liegt unter `assets/tavern.webp` (alter Beispielentwurf in der Git-Historie).
