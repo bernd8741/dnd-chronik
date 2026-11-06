@@ -111,6 +111,18 @@
           <h2 id="detail-title">${esc(c.name)}</h2><div class="detail-role">${esc(c.role)} · ${esc(c.characterClass)}</div>
           <p>${esc(c.description)}</p>
           <dl class="detail-facts"><div><dt>Volk</dt><dd>${esc(c.species)}</dd></div><div><dt>Größe</dt><dd>${esc(c.height)}</dd></div><div><dt>Alter</dt><dd>${esc(c.age)}</dd></div></dl>
+          ${c.sheet ? `
+          <section class="detail-sheet" aria-label="Charakterbogen-Werte von ${esc(c.name)}">
+            <h3>Charakterwerte · D&amp;D 2024</h3>
+            <div class="sheet-stats">${Object.entries(c.sheet.abilities).map(([k,v]) => `<div><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join("")}</div>
+            <div class="sheet-meta">
+              <span><b>RK</b> ${esc(c.sheet.ac)}</span>
+              <span><b>Max. TP</b> ${esc(c.sheet.hp)}</span>
+              <span><b>Bewegung</b> ${esc(c.sheet.speed)}</span>
+            </div>
+            <p class="sheet-note">Werte aus den bestätigten Charakterbögen, nicht der aktuelle Kampfzustand.</p>
+            <div class="sheet-features">${c.sheet.features.map(t => `<span>${esc(t)}</span>`).join("")}</div>
+          </section>` : ""}
           ${Array.isArray(c.backstory) && c.backstory.length ? `
           <section class="detail-backstory" aria-label="Vorgeschichte von ${esc(c.name)}">
             <h3>Vorgeschichte</h3>

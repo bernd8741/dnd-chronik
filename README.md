@@ -32,5 +32,13 @@ GitHub Pages veröffentlicht automatisch Änderungen auf `main` aus dem Stammver
 ## Datenschutz / Spoiler
 Dieses Repository und die Website sind **öffentlich**. Geheime Charakterinformationen, unveröffentlichte Handlungsdetails und persönliche Daten gehören nicht in die Website-Dateien.
 
+## Eine eindeutige Quelle je Aufgabe
+
+- `main` ist **ausschließlich** die öffentliche Website mit `content.js` als Quelle für veröffentlichte Charakterprofile, Kapitel und Bilder.
+- [`kampagnenstatus`](https://github.com/bernd8741/dnd-chronik/tree/kampagnenstatus) enthält **nur** `Kampagnenstatus.md` und seine Anleitung. Hier werden tatsächliche Spielereignisse, NSC, Beute, Quests und Fortschritte fortgeschrieben. Niemals eine zweite Website dort pflegen.
+- Aktuelle bestätigte **Charakterbögen und Referenzbilder** liegen als Projektdateien in ChatGPT; die Website zeigt nur kurze, freigegebene Auszüge. Bei Änderungen an Charakterwerten zuerst den neuesten bestätigten Charakterbogen prüfen. Keine eigenständigen Website-/Statuskopien der PDF-Charakterbögen führen.
+- Der Branch `copilot/dnd-abenteuertagebuch` ist ein **veralteter Entwurf** und kein maßgeblicher Kampagnen- oder Veröffentlichungsstand.
+- **Sicherheit:** Das ganze Repository, auch `kampagnenstatus`, ist öffentlich einsehbar. Keine DM-Geheimnisse in die Website oder andere Veröffentlichungen übernehmen.
+
 ## Stand des Tagebuchs
 Der Prolog ist öffentlich und das Tavernenkapitel als **Beispielentwurf** gekennzeichnet. Die Porträts aller vier Gefährten sind inzwischen eingebunden. Asphodels öffentliches Profil enthält nur eine spoilerfreie Hintergrundbeschreibung.

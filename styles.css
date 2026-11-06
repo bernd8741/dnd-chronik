@@ -284,3 +284,17 @@ html, body { overflow-x: clip; }
 .detail-backstory h3 { font: 600 30px/1.05 var(--serif); color: var(--gold-light); margin: 0 0 13px; }
 .detail-backstory p { color: #d2d1c5; font-size: 13px; line-height: 1.85; margin: 0 0 12px; }
 .detail-backstory p:last-child { margin-bottom: 0; }
+
+/* Kompakte bestätigte Charakterbogen-Werte im Charakterfenster */
+.detail-sheet { border-top: 1px solid rgba(219,185,120,.33); padding-top: 20px; margin: 21px 0 25px; }
+.detail-sheet h3 {font: 600 27px/1.1 var(--serif); color: var(--gold-light); margin:0 0 15px;}
+.sheet-stats {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:5px;}
+.sheet-stats div {padding:9px 3px;border:1px solid #485148;text-align:center;display:grid;gap:3px;background:rgba(255,255,255,.018);}
+.sheet-stats span {font-size:9px;letter-spacing:.08em;color:#a9afa0;}
+.sheet-stats strong {color:#efdec0;font:600 20px var(--serif);}
+.sheet-meta {display:flex;gap:15px;flex-wrap:wrap;margin-top:14px;color:#dad5c5;font-size:12px;}
+.sheet-meta b {font-weight:500;color:var(--gold-light);margin-right:4px;}
+.detail-copy .sheet-note {color:#a9afa0;font-size:11px;line-height:1.6;margin:9px 0 12px;}
+.sheet-features {display:flex;flex-wrap:wrap;gap:6px;}
+.sheet-features span {border:1px solid #505c4e;padding:3px 7px;font-size:10px;color:#ceccba;}
+@media(max-width:460px) {.sheet-stats {grid-template-columns:repeat(3,minmax(0,1fr));}}
