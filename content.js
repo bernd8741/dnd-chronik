@@ -20,7 +20,7 @@ window.CHRONIK = {
       age: "180 Jahre",
       height: "110 cm",
       sheet: {"ac":14,"hp":17,"speed":"9 m","abilities":{"STÄ":10,"GES":12,"KON":15,"INT":13,"WEI":17,"CHA":8},"features":["Zauberwirken","Tiergestalt","Wilder Gefährte","Heiler"]},
-      image: "assets/murtagh.webp",
+      image: "assets/characters/murtagh.webp",
       imageAlt: "Murtagh mit grauem Bart, runder Brille, spitzem Kräuterhut und Eichhörnchen",
       color: "sage",
       quote: "Wenn man ganz genau zuhört, hat sogar ein Eichhörnchen etwas zu sagen.",
@@ -42,7 +42,7 @@ window.CHRONIK = {
       age: "Nicht überliefert",
       height: "80 cm",
       sheet: {"ac":12,"hp":12,"speed":"7,5 m","abilities":{"STÄ":8,"GES":14,"KON":13,"INT":17,"WEI":13,"CHA":10},"features":["Zauberbuch","Rituale","Arkane Erholung"]},
-      image: "assets/gamakichi.webp",
+      image: "assets/characters/gamakichi.webp",
       imageAlt: "Gamakichi, rosafarbener Grung-Magier mit violettem Sternenhut, Zauberstab mit violetter Kristallkugel und schwarzem Raben",
       color: "violet",
       quote: "Die Welt ist groß. Selbst wenn man nur achtzig Zentimeter misst.",
@@ -63,7 +63,7 @@ window.CHRONIK = {
       age: "135 Jahre",
       height: "120 cm",
       sheet: {"ac":13,"hp":29,"speed":"9 m","abilities":{"STÄ":15,"GES":13,"KON":14,"INT":8,"WEI":12,"CHA":10},"features":["Kampfrausch","Gefahrengespür","Rücksichtsloser Angriff"]},
-      image: "assets/heela.webp",
+      image: "assets/characters/heela.webp",
       imageAlt: "Heela, rothaarige Zwergin mit Fellrüstung und Streitaxt zwischen ihren Schafen am Gebirgshof",
       color: "ember",
       quote: "Bei meinen Schafen hört der Spaß auf.",
@@ -85,7 +85,7 @@ window.CHRONIK = {
       age: "666 Jahre",
       height: "192 cm",
       sheet: {"ac":13,"hp":13,"speed":"9 m","abilities":{"STÄ":14,"GES":16,"KON":11,"INT":13,"WEI":8,"CHA":13},"features":["Hinterhältiger Angriff","Listige Aktion","Waffenmeisterschaft"]},
-      image: "assets/asphodel.webp",
+      image: "assets/characters/asphodel.webp",
       imageAlt: "Asphodel, maskierter Tiefling-Schurke mit goldener Maske und dunkler Kleidung",
       color: "steel",
       quote: "Nicht jeder Weg muss im Licht liegen.",
@@ -100,6 +100,10 @@ window.CHRONIK = {
   ],
 
   // Neues Kapitel: den letzten { ... }-Block kopieren, dann Texte und Bild ändern.
+  // image: Titelbild unter assets/chapters/<id>/cover.webp
+  // audio: Pfad zur freigegebenen MP3 oder null, z.B. assets/chapters/<id>/erzaehlung.mp3
+  // images: zusätzliche Szenenbilder als [{src: "assets/chapters/<id>/szene-01.webp", alt: "...", caption: "..."}]
+  // Bilder und Hörfassungen nur für freigegebene Kapitel veröffentlichen.
   // Datum: "YYYY-MM-DD" oder null, solange die Session noch nicht stattgefunden hat.
   // time: z.B. "19:30" (optional); session: z.B. "Session 2"; inWorldDate: Spielweltdatum.
   chapters: [
@@ -114,8 +118,10 @@ window.CHRONIK = {
       session: "Vorgeschichte",
       inWorldDate: "Nicht überliefert",
       location: "Eine abgelegene Waldhütte",
-      image: "assets/forest-hut.webp",
+      image: "assets/chapters/prolog/cover.webp",
       imageAlt: "Moosbedeckte Waldhütte im warmen Abendlicht",
+      audio: null,
+      images: [],
       state: "story",
       summary: "Ein Druide, ein Wald voller Eichhörnchen und eine Reise ins Ungewisse.",
       paragraphs: [
@@ -136,8 +142,10 @@ window.CHRONIK = {
       session: "Auftakt · bestätigt",
       inWorldDate: "Nicht überliefert",
       location: "Eine Taverne · Name und Ort noch unbekannt",
-      image: "assets/tavern.webp",
+      image: "assets/chapters/kapitel-01/cover.webp",
       imageAlt: "Die vier Gefährten am Tisch einer warm beleuchteten Taverne: Asphodel, Gamakichi mit Raben, Murtagh mit P-Nut und Heela",
+      audio: null,
+      images: [],
       state: "story",
       summary: "Vier Fremde finden unabhängig voneinander ihren Weg in dieselbe Taverne – hier beginnt die Geschichte der vier Gefährten.",
       paragraphs: [

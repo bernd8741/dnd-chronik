@@ -8,7 +8,7 @@
   <meta property="og:type" content="website">
   <meta property="og:title" content="Die Chronik der vier Gefährten">
   <meta property="og:description" content="Vier Reisende. Eine Geschichte. Ein fortlaufend illustriertes Fantasy-Tagebuch.">
-  <meta property="og:image" content="assets/tavern.webp">
+  <meta property="og:image" content="assets/chapters/kapitel-01/cover.webp">
   <title>Die Chronik der vier Gefährten</title>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -39,7 +39,7 @@
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-art" role="img" aria-label="Murtagh und Gamakichi begegnen einander in einer atmosphärischen Fantasy-Taverne"></div>
+      <div class="hero-art" role="img" aria-label="Die vier Gefährten versammeln sich in einer atmosphärischen Fantasy-Taverne"></div>
       <div class="hero-vignette"></div>
       <div class="hero-content shell">
         <div class="hero-ornament" aria-hidden="true"><span></span> ✦ <span></span></div>
@@ -80,7 +80,7 @@
         </aside>
         <article id="kapitel-leser" class="reader-card" tabindex="-1" aria-live="polite">
           <div class="reader-image-wrap">
-            <img id="reader-image" class="reader-image" src="assets/forest-hut.webp" alt="Waldhütte im Wald" width="1536" height="1024">
+            <img id="reader-image" class="reader-image" src="assets/chapters/prolog/cover.webp" alt="Waldhütte im Wald" width="1536" height="1024">
             <div class="reader-image-mark" id="reader-image-mark">PROLOG</div>
             <button class="image-expand" id="reader-expand" aria-label="Kapitelbild vergrößern" title="Bild vergrößern">⤢</button>
           </div>
@@ -88,8 +88,17 @@
             <div class="reader-meta"><span id="reader-label">PROLOG</span><span class="meta-ornament" aria-hidden="true">✧</span><time id="reader-date">Vor Beginn der Kampagne</time></div>
             <h3 id="reader-title">Eine Hütte unter alten Bäumen</h3>
             <p class="reader-subtitle" id="reader-subtitle">Wo unsere Geschichte beginnt.</p>
+            <section class="reader-audio" id="reader-audio-wrap" aria-label="Kapitel anhören" hidden>
+              <div class="reader-audio-top"><span class="reader-audio-symbol" aria-hidden="true">♫</span><div><strong>Kapitel anhören</strong><span>Murtaghs Erzählung</span></div></div>
+              <audio id="reader-audio" controls preload="none" aria-label="Kapitel als Hörfassung anhören">Dein Browser unterstützt die Audiowiedergabe nicht.</audio>
+              <a id="reader-audio-download" class="reader-audio-download" href="#" download>MP3 herunterladen</a>
+            </section>
             <div class="reader-divider" aria-hidden="true">✦</div>
             <div class="reader-prose" id="reader-prose"></div>
+            <section class="reader-gallery" id="reader-gallery" aria-label="Weitere Kapitelillustrationen" hidden>
+              <h4>Weitere Szenenbilder</h4>
+              <div id="reader-gallery-list" class="reader-gallery-list"></div>
+            </section>
             <div class="reader-footer">
               <div class="reader-location"><span aria-hidden="true">⌖</span><span id="reader-location">Der tiefe Wald</span></div>
               <div class="reader-controls">

@@ -46,7 +46,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .mobile-menu-btn { display: none; }
 .hero { position: relative; isolation: isolate; min-height: 742px; display: flex; flex-direction: column; justify-content: center; background: var(--bg-deep); overflow: hidden; }
 .hero-art, .hero-vignette { position: absolute; inset: 0; z-index: -1; }
-.hero-art { background-image: url('assets/tavern.webp'); background-size: cover; background-position: 58% 45%; transform: scale(1.015); }
+.hero-art { background-image: url('assets/chapters/kapitel-01/cover.webp'); background-size: cover; background-position: 58% 45%; transform: scale(1.015); }
 .hero-vignette { background: linear-gradient(90deg, rgba(8,14,12,.97) 1%, rgba(10,17,15,.91) 22%, rgba(11,17,15,.7) 43%, rgba(9,15,14,.05) 82%), linear-gradient(0deg, #101816 0, transparent 22%, rgba(9,15,14,.22) 70%, rgba(9,15,14,.25)); }
 .hero-content { padding-top: 105px; padding-bottom: 86px; }
 .hero-ornament { color: var(--gold); display: flex; gap: 16px; align-items: center; margin-bottom: 19px; width: 146px; font-family: var(--serif); }
@@ -298,3 +298,26 @@ html, body { overflow-x: clip; }
 .sheet-features {display:flex;flex-wrap:wrap;gap:6px;}
 .sheet-features span {border:1px solid #505c4e;padding:3px 7px;font-size:10px;color:#ceccba;}
 @media(max-width:460px) {.sheet-stats {grid-template-columns:repeat(3,minmax(0,1fr));}}
+
+/* Kapitelhörfassung und zusätzliche Szenenillustrationen */
+.reader-audio[hidden], .reader-gallery[hidden] {display:none !important;}
+.reader-audio {margin:27px 0 8px;padding:18px 20px 16px;border:1px solid #c8b18a;background:rgba(255,250,235,.52);border-radius:8px;}
+.reader-audio-top {display:flex;align-items:center;gap:11px;margin-bottom:13px;}
+.reader-audio-symbol {display:grid;place-items:center;width:36px;height:36px;border:1px solid #bca67c;border-radius:50%;color:#82653e;font-size:19px;}
+.reader-audio-top div {display:grid;gap:3px;}
+.reader-audio-top strong {font:600 20px/1.1 var(--serif);color:#353829;}
+.reader-audio-top span:last-child {color:#887759;font-size:11px;letter-spacing:.025em;}
+.reader-audio audio {display:block;width:100%;min-height:54px;accent-color:#755b38;}
+.reader-audio-download {display:inline-block;margin-top:8px;color:#775a32;font-size:12px;text-decoration:underline;text-underline-offset:3px;}
+.reader-gallery {margin-top:29px;padding-top:22px;border-top:1px solid #c9bea7;}
+.reader-gallery h4 {margin:0 0 14px;color:#7c633f;font:600 22px/1.2 var(--serif);}
+.reader-gallery-list {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+.reader-gallery figure {margin:0;min-width:0;}
+.reader-gallery-button {display:block;cursor:zoom-in;width:100%;padding:0;border:1px solid #b3a185;background:#191f1a;text-align:left;}
+.reader-gallery-button img {display:block;width:100%;aspect-ratio:3/2;object-fit:cover;}
+.reader-gallery figcaption {color:#655941;font:italic 14px/1.4 var(--serif);margin-top:6px;}
+.reader-gallery-button:focus-visible,.reader-audio-download:focus-visible {outline:3px solid #937042;outline-offset:3px;}
+@media(max-width:520px) {
+ .reader-audio {padding:14px 13px;}
+ .reader-gallery-list {grid-template-columns:1fr;}
+}

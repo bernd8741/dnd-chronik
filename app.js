@@ -8,6 +8,11 @@
   const chapterList = $("#chapter-list");
   const reader = $("#kapitel-leser");
   let active = Math.max(0, data.chapters.length - 1);
+  const readerAudio = $("#reader-audio");
+  const readerAudioWrap = $("#reader-audio-wrap");
+  const readerAudioDownload = $("#reader-audio-download");
+  const readerGallery = $("#reader-gallery");
+  const readerGalleryList = $("#reader-gallery-list");
 
   function chapterDate(chapter) {
     if (chapter.date) {
@@ -31,6 +36,27 @@
 
   function renderReader() {
     const chapter = data.chapters[active];
+
+    // Stoppe die alte Hörfassung sofort, bevor ein anderes Kapitel erscheint.
+    readerAudio.pause();
+    readerAudio.removeAttribute("src");
+    readerAudio.load();
+    const audioPath = typeof chapter.audio === "string" ? chapter.audio.trim() : "";
+    readerAudioWrap.hidden = !audioPath;
+    if (audioPath) {
+      readerAudio.src = audioPath;
+      readerAudio.setAttribute("aria-label", "Hörfassung: " + chapter.title);
+      readerAudioDownload.href = audioPath;
+    } else {
+      readerAudioDownload.removeAttribute("href");
+    }
+
+    const additionalImages = Array.isArray(chapter.images) ? chapter.images : [];
+    const imageItems = additionalImages.flatMap((media, index) => media && typeof media.src === "string" && media.src.trim()
+      ? [`<figure><button type="button" class="reader-gallery-button" data-gallery-image="${index}" aria-label="Bild vergrößern: ${esc(media.alt || "Szenenbild")}"><img src="${esc(media.src)}" alt="${esc(media.alt || chapter.title)}" loading="lazy" decoding="async"></button>${media.caption ? `<figcaption>${esc(media.caption)}</figcaption>` : ""}</figure>`]
+      : []);
+    readerGallery.hidden = imageItems.length === 0;
+    readerGalleryList.innerHTML = imageItems.join("");
     $("#reader-image").src = chapter.image;
     $("#reader-image").alt = chapter.imageAlt || chapter.title;
     $("#reader-image-mark").textContent = chapter.label;
@@ -138,12 +164,23 @@
   detailDialog.addEventListener("click", (evt) => {if (evt.target === detailDialog) detailDialog.close();});
 
   const imageDialog = $("#image-dialog");
+  function openChapterImage(src, alt, caption) {
+    $("#image-dialog-img").src = src;
+    $("#image-dialog-img").alt = alt || caption;
+    $("#image-dialog-caption").textContent = caption;
+    imageDialog.showModal();
+  }
   $("#reader-expand").addEventListener("click", () => {
     const c = data.chapters[active];
-    $("#image-dialog-img").src = c.image;
-    $("#image-dialog-img").alt = c.imageAlt;
-    $("#image-dialog-caption").textContent = c.title;
-    imageDialog.showModal();
+    openChapterImage(c.image, c.imageAlt, c.title);
+  });
+  readerGalleryList.addEventListener("click", (evt) => {
+    const button = evt.target.closest("[data-gallery-image]");
+    if (!button) return;
+    const chapter = data.chapters[active];
+    const image = Array.isArray(chapter.images) ? chapter.images[Number(button.dataset.galleryImage)] : null;
+    if (!image || !image.src) return;
+    openChapterImage(image.src, image.alt || chapter.title, image.caption || chapter.title);
   });
   $("#image-close").addEventListener("click", () => imageDialog.close());
   imageDialog.addEventListener("click", (evt) => {if (evt.target === imageDialog) imageDialog.close();});
