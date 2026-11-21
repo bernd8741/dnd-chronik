@@ -81,15 +81,15 @@
     active = Math.min(data.chapters.length - 1, Math.max(0, Number(index)));
     renderReader();
     if (history.replaceState) history.replaceState(null, "", `#${data.chapters[active].id}`);
-    if (scroll) reader.scrollIntoView({behavior: "smooth", block: "start"});
+    if (scroll) reader.scrollIntoView({behavior: scroll === "instant" ? "instant" : "smooth", block: "start"});
   }
 
   chapterList.addEventListener("click", (evt) => {
     const target = evt.target.closest("[data-chapter]");
     if (target) chooseChapter(target.dataset.chapter, window.innerWidth < 850);
   });
-  $("#prev-chapter").addEventListener("click", () => chooseChapter(active - 1));
-  $("#next-chapter").addEventListener("click", () => chooseChapter(active + 1));
+  $("#prev-chapter").addEventListener("click", () => chooseChapter(active - 1, "instant"));
+  $("#next-chapter").addEventListener("click", () => chooseChapter(active + 1, "instant"));
 
   function renderCharacters() {
     $("#characters").innerHTML = data.characters.map((c, index) => `
