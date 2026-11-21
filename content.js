@@ -120,7 +120,7 @@ window.CHRONIK = {
       location: "Eine abgelegene Waldhütte",
       image: "assets/chapters/prolog/cover.webp",
       imageAlt: "Moosbedeckte Waldhütte im warmen Abendlicht",
-      audio: null,
+      audio: "assets/chapters/prolog/erzaehlung.mp3",
       images: [],
       state: "story",
       summary: "Ein Druide, ein Wald voller Eichhörnchen und eine Reise ins Ungewisse.",
