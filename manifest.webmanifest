@@ -1,0 +1,31 @@
+{
+  "id": "/dnd-chronik/",
+  "name": "Die Chronik der vier Gefährten",
+  "short_name": "Vier Gefährten",
+  "description": "Das illustrierte D&D-Tagebuch der vier Gefährten.",
+  "start_url": "/dnd-chronik/",
+  "scope": "/dnd-chronik/",
+  "display": "standalone",
+  "background_color": "#101917",
+  "theme_color": "#101917",
+  "icons": [
+    {
+      "src": "assets/icons/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/app-icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

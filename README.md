@@ -14,7 +14,7 @@ Illustriertes D&D-Tagebuch von **Murtagh, Gamakichi, Heela und Asphodel**.
 | `content.js` | Einzige Quelle für veröffentlichte Texte, Kapitelmetadaten, Audio- und Bildpfade |
 | `assets/characters/` | Aktuelle Porträts von Murtagh, Gamakichi, Heela und Asphodel |
 | `assets/chapters/<id>/` | Titelbilder, weitere Szenenbilder und optionale Hörfassungen |
-| `assets/favicon.svg` | Website-Symbol |
+| `assets/icons/favicon-32.png` | Website-Symbol |
 
 Die öffentlichen Charakterprofile in `content.js` enthalten das Feld `backstory`: eine Liste bestätigter Vorgeschichts-Absätze. Sie werden im Charakterfenster angezeigt. Keine Geheimnisse oder unbestätigten Ereignisse hinzufügen.
 
@@ -40,6 +40,18 @@ Schicke einen Screenshot mit gewünschter Änderung direkt im Chat. Für größe
 
 ## Veröffentlichung
 GitHub Pages veröffentlicht automatisch Änderungen auf `main` aus dem Stammverzeichnis; der Link bleibt unverändert. ZIP-Uploads sind nicht mehr erforderlich.
+
+## App-Icon und Installation auf dem Handy
+
+Für iPhone (Safari: Teilen → Zum Home-Bildschirm) und Android (Chrome: Menü → App installieren / Zum Startbildschirm hinzufügen) ist das **rote Drachenlogo mit goldenem W20** als Icon eingebunden.
+
+- `manifest.webmanifest`: Name, Start-URL und eigenständige Darstellung der installierten Website; die Installation startet unter `/dnd-chronik/`.
+- `assets/icons/apple-touch-icon.png`: iOS-Startbildschirm, 180 × 180.
+- `assets/icons/app-icon-192.png` und `assets/icons/app-icon-512.png`: allgemeine Android-/PWA-Icons.
+- `assets/icons/app-icon-maskable-512.png`: Icon mit Sicherheitsrand für Android-Symbolmasken.
+- `assets/icons/favicon-32.png`: kleines Browser-Tab-Symbol.
+
+Wenn bereits ein früheres Startbildschirm-Symbol existiert, muss es gegebenenfalls vom Startbildschirm entfernt und die Website erneut hinzugefügt werden, damit das neue Icon erscheint. Die Website bietet keine installierte Offline-Funktion; hierfür wurde kein Service Worker ergänzt.
 
 ## Datenschutz / Spoiler
 Dieses Repository und die Website sind **öffentlich**. Geheime Charakterinformationen, unveröffentlichte Handlungsdetails und persönliche Daten gehören nicht in die Website-Dateien.
