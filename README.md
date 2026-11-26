@@ -33,15 +33,15 @@ Ein Kapitel in `content.js` hat Felder wie `id`, `label`, `title`, `subtitle`, `
 - Texte bleiben ausschließlich in `content.js`, bestätigte Spielereignisse im Branch `kampagnenstatus` in `Kampagnenstatus.md`. Nicht als weitere Kapiteltextkopien in Medienordnern ablegen.
 - MP3 möglichst klein halten; die Dateigrößen und GitHub-Pages-Grenzen im Blick behalten. Keine Musik oder Klangeffekte ohne die erforderlichen Nutzungsrechte veröffentlichen.
 
-**Aktueller Stand:** Prolog und Kapitel I besitzen Titelbilder; derzeit liegen noch keine bestätigten Hörfassungen oder zusätzlichen Szenenbilder vor.
+**Aktueller Stand:** Prolog und Kapitel I besitzen Titelbilder. Die Hörfassung des Prologs liegt unter `assets/chapters/prolog/erzaehlung.mp3`. Für Kapitel I liegt derzeit noch keine Hörfassung vor; zusätzliche Szenenbilder sind noch nicht hinterlegt.
 
 ## Magisches Tagebuch (Buchmodus)
 
-- Im Kapitel-Leser kann zwischen **Magisches Buch** (Standard) und **Klassisch** umgeschaltet werden. Die Auswahl wird ausschließlich auf dem Gerät im Browser gespeichert (\`localStorage\`). Die Inhalte stammen in beiden Ansichten aus derselben \`content.js\`.
+- Im Kapitel-Leser kann zwischen **Magisches Buch** (Standard) und **Klassisch** umgeschaltet werden. Die Auswahl wird ausschließlich auf dem Gerät im Browser gespeichert (`localStorage`). Die Inhalte stammen in beiden Ansichten aus derselben `content.js`.
 - **Magisches Buch:** Dunkler Ledereinband mit goldenen Verzierungen und Kapitelmotiv; auf **Kapitel aufschlagen** folgen Pergamentseiten. Breite Bildschirme zeigen Doppelseiten, kleinere Geräte einzelne Seiten.
-- Die Absätze werden anhand der tatsächlichen Seitengröße auf Buchseiten verteilt; Hervorhebungen (\`**fett**\`) werden übernommen. Umblättern funktioniert per Tasten und auf Touchgeräten durch horizontales Wischen. Nach einem Kapitelwechsel erscheint wieder der neue Bucheinband.
-- Die Hörfassung und Szenengalerie bleiben dieselben DOM-Elemente. Beim Wechsel **zwischen Lesemodi** spielt Audio weiter; **beim Kapitelwechsel** wird es gestoppt. Direkte Kapitel-Links (\`#prolog\`, \`#kapitel-01\`) bleiben nutzbar.
-- Die klassische Kapitelansicht bleibt unverändert zugänglich. Animationen werden bei \`prefers-reduced-motion\` ausgeschaltet, es werden keine externen Animationsbibliotheken eingebunden.
+- Die Absätze werden anhand der tatsächlichen Seitengröße auf Buchseiten verteilt; Hervorhebungen (`**fett**`) werden übernommen. Umblättern funktioniert per Tasten und auf Touchgeräten durch horizontales Wischen. Nach einem Kapitelwechsel erscheint wieder der neue Bucheinband.
+- Die Hörfassung und Szenengalerie bleiben dieselben DOM-Elemente. Beim Wechsel **zwischen Lesemodi** spielt Audio weiter; **beim Kapitelwechsel** wird es gestoppt. Direkte Kapitel-Links (`#prolog`, `#kapitel-01`) bleiben nutzbar.
+- Die klassische Kapitelansicht bleibt unverändert zugänglich. Animationen werden bei `prefers-reduced-motion` ausgeschaltet, es werden keine externen Animationsbibliotheken eingebunden.
 - Neue Kapitel brauchen keine Sonderdaten für den Buchmodus; die bestehenden Kapitelangaben, Bilder und Texte werden direkt verwendet.
 
 ## Design-Änderungen
