@@ -183,6 +183,7 @@
     if (reduceMotion.matches) {
       bookPageIndex = destination;
       renderBookSpread();
+      bookSpread.scrollIntoView({behavior:"instant",block:"start"});
       return;
     }
     bookTurning = true;
@@ -191,6 +192,7 @@
       bookPageIndex = destination;
       bookSpread.classList.remove("is-turning-next", "is-turning-prev");
       renderBookSpread();
+      bookSpread.scrollIntoView({behavior:"instant",block:"start"});
       bookTurning = false;
     }, 470);
   }
@@ -200,7 +202,10 @@
     bookPageIndex = 0;
     bookCover.hidden = true;
     bookOpenView.hidden = false;
-    requestAnimationFrame(() => { paginateBook(); });
+    requestAnimationFrame(() => {
+      paginateBook();
+      bookOpenView.scrollIntoView({behavior:"instant",block:"start"});
+    });
   }
 
   function refreshBookPagination() {
