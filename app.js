@@ -14,6 +14,204 @@
   const readerGallery = $("#reader-gallery");
   const readerGalleryList = $("#reader-gallery-list");
 
+  // Zwei Lesemodi, eine gemeinsame Quelle für Text, Hörfassung und Bilder.
+  // Die Audiowiedergabe wird beim Moduswechsel nicht neu geladen.
+  const classicView = $("#reader-classic");
+  const bookView = $("#magic-book");
+  const bookCover = $("#magic-book-cover");
+  const bookOpenView = $("#magic-book-open");
+  const bookSpread = $("#magic-book-spread");
+  const bookMeasureBody = $("#magic-book-measure-body");
+  const bookLeft = $("#magic-book-page-left");
+  const bookRight = $("#magic-book-page-right");
+  const bookStatus = $("#magic-book-page-status");
+  const narrowBook = window.matchMedia("(max-width: 1120px)");
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let readerMode = "book";
+  try {
+    readerMode = localStorage.getItem("chronik-reader-mode") === "classic" ? "classic" : "book";
+  } catch (_) {
+    readerMode = "book";
+  }
+  let bookOpened = false;
+  let bookPages = [];
+  let bookPageIndex = 0;
+  let bookTurning = false;
+  let bookResizeTimer = null;
+
+  function setReaderMode(mode, scrollToTop = true) {
+    readerMode = mode === "classic" ? "classic" : "book";
+    classicView.hidden = readerMode !== "classic";
+    bookView.hidden = readerMode !== "book";
+    $("#reader-mode-classic").setAttribute("aria-pressed", String(readerMode === "classic"));
+    $("#reader-mode-book").setAttribute("aria-pressed", String(readerMode === "book"));
+    $("#reader-mode-classic").classList.toggle("is-active", readerMode === "classic");
+    $("#reader-mode-book").classList.toggle("is-active", readerMode === "book");
+    (readerMode === "book" ? $("#magic-book-audio-slot") : $("#classic-audio-slot")).appendChild(readerAudioWrap);
+    (readerMode === "book" ? $("#magic-book-gallery-slot") : $("#classic-gallery-slot")).appendChild(readerGallery);
+    try { localStorage.setItem("chronik-reader-mode", readerMode); } catch (_) {}
+    if (readerMode === "book" && bookOpened) {
+      requestAnimationFrame(paginateBook);
+    }
+    if (scrollToTop) reader.scrollIntoView({behavior:"instant",block:"start"});
+  }
+
+  function updateBookChapter() {
+    const chapter = data.chapters[active];
+    bookOpened = false;
+    bookTurning = false;
+    bookPageIndex = 0;
+    bookPages = [];
+    bookSpread.classList.remove("is-turning-next", "is-turning-prev");
+    bookCover.hidden = false;
+    bookOpenView.hidden = true;
+    $("#magic-book-cover-label").textContent = chapter.label;
+    $("#magic-book-cover-title").textContent = chapter.title;
+    $("#magic-book-cover-subtitle").textContent = chapter.subtitle || "";
+    const coverImg = $("#magic-book-cover-image");
+    coverImg.src = chapter.image;
+    coverImg.alt = chapter.imageAlt || chapter.title;
+    $("#magic-book-prev-chapter").disabled = active === 0;
+    $("#magic-book-next-chapter").disabled = active === data.chapters.length - 1;
+    bookStatus.textContent = "";
+  }
+
+  function bookTokens(rawParagraph) {
+    // **Fettschrift** aus dem bestätigten Kapiteltext ohne HTML-Duplikat übernehmen.
+    return String(rawParagraph || "").split("**").flatMap((piece, index) =>
+      (piece.match(/\S+\s*/g) || []).map(word => ({word, bold: index % 2 === 1}))
+    );
+  }
+
+  function bookTokenMarkup(tokens) {
+    let output = "";
+    let strong = false;
+    tokens.forEach(token => {
+      if (token.bold !== strong) {
+        output += strong ? "</strong>" : "<strong>";
+        strong = token.bold;
+      }
+      output += esc(token.word);
+    });
+    if (strong) output += "</strong>";
+    return output;
+  }
+
+  function bookContentMarkup(parts) {
+    return parts.map(part => '<p class="magic-book-paragraph">' + bookTokenMarkup(part.tokens) + "</p>").join("");
+  }
+
+  function paginateBook() {
+    if (!bookOpened || readerMode !== "book") return;
+    if (bookMeasureBody.clientHeight < 100) return;
+    const source = Array.isArray(data.chapters[active].paragraphs) ? data.chapters[active].paragraphs : [];
+    const pages = [];
+    let parts = [];
+    const fits = trial => {
+      bookMeasureBody.innerHTML = bookContentMarkup(trial);
+      return bookMeasureBody.scrollHeight <= bookMeasureBody.clientHeight + 1;
+    };
+    source.forEach(paragraph => {
+      const tokens = bookTokens(paragraph);
+      let offset = 0;
+      while (offset < tokens.length) {
+        const remaining = tokens.slice(offset);
+        const entire = parts.concat([{tokens: remaining}]);
+        if (fits(entire)) {
+          parts = entire;
+          offset = tokens.length;
+          continue;
+        }
+        let low = 0, high = remaining.length;
+        while (low < high) {
+          const mid = Math.ceil((low + high) / 2);
+          if (fits(parts.concat([{tokens: remaining.slice(0, mid)}]))) low = mid;
+          else high = mid - 1;
+        }
+        if (low > 0) {
+          parts.push({tokens: remaining.slice(0, low)});
+          offset += low;
+        } else if (parts.length === 0) {
+          // Ein überlanges Wort wird nicht verworfen.
+          parts.push({tokens: remaining.slice(0, 1)});
+          offset += 1;
+        }
+        if (parts.length) {
+          pages.push(bookContentMarkup(parts));
+          parts = [];
+        }
+      }
+    });
+    if (parts.length) pages.push(bookContentMarkup(parts));
+    bookPages = pages.length ? pages : ['<p class="magic-book-paragraph">Für diesen Eintrag ist noch kein Text vorhanden.</p>'];
+    bookPageIndex = Math.min(bookPageIndex, bookPages.length - 1);
+    renderBookSpread();
+  }
+
+  function bookPageMarkup(index) {
+    const chapter = data.chapters[active];
+    const valid = index < bookPages.length;
+    return '<div class="magic-book-page-top"><span>' + esc(chapter.label) + '</span><span aria-hidden="true">✧</span></div>' +
+      '<div class="magic-book-page-body">' +
+      (valid ? bookPages[index] : '<p class="magic-book-end-mark" aria-hidden="true">✦</p>') +
+      '</div>' +
+      '<div class="magic-book-page-bottom"><span>Die Chronik der vier Gefährten</span><span>' +
+      (valid ? String(index + 1).padStart(2, "0") : "✦") + '</span></div>';
+  }
+
+  function renderBookSpread() {
+    const spreadSize = narrowBook.matches ? 1 : 2;
+    const first = Math.floor(bookPageIndex / spreadSize) * spreadSize;
+    bookPageIndex = first;
+    bookLeft.innerHTML = bookPageMarkup(first);
+    bookRight.hidden = spreadSize === 1;
+    bookRight.innerHTML = spreadSize === 2 ? bookPageMarkup(first + 1) : "";
+    bookRight.setAttribute("aria-hidden", spreadSize === 1 ? "true" : "false");
+    const last = Math.min(first + spreadSize, bookPages.length);
+    bookStatus.textContent = spreadSize === 2 && last > first + 1
+      ? "Seiten " + (first + 1) + "–" + last + " von " + bookPages.length
+      : "Seite " + (first + 1) + " von " + bookPages.length;
+    $("#magic-book-prev-page").disabled = first === 0;
+    $("#magic-book-next-page").disabled = last >= bookPages.length;
+  }
+
+  function turnBookPage(direction) {
+    if (!bookOpened || bookTurning) return;
+    const step = narrowBook.matches ? 1 : 2;
+    const destination = bookPageIndex + direction * step;
+    if (destination < 0 || destination >= bookPages.length) return;
+    if (reduceMotion.matches) {
+      bookPageIndex = destination;
+      renderBookSpread();
+      return;
+    }
+    bookTurning = true;
+    bookSpread.classList.add(direction > 0 ? "is-turning-next" : "is-turning-prev");
+    window.setTimeout(() => {
+      bookPageIndex = destination;
+      bookSpread.classList.remove("is-turning-next", "is-turning-prev");
+      renderBookSpread();
+      bookTurning = false;
+    }, 470);
+  }
+
+  function openBook() {
+    bookOpened = true;
+    bookPageIndex = 0;
+    bookCover.hidden = true;
+    bookOpenView.hidden = false;
+    requestAnimationFrame(() => { paginateBook(); });
+  }
+
+  function refreshBookPagination() {
+    if (readerMode !== "book" || !bookOpened) return;
+    clearTimeout(bookResizeTimer);
+    bookResizeTimer = window.setTimeout(() => {
+      if (!bookTurning) paginateBook();
+    }, 140);
+  }
+
+
   function chapterDate(chapter) {
     if (chapter.date) {
       const parsed = new Date(`${chapter.date}T12:00:00`);
@@ -71,6 +269,7 @@
     $("#reader-location").textContent = chapter.location || "Ort unbekannt";
     $("#prev-chapter").disabled = active === 0;
     $("#next-chapter").disabled = active === data.chapters.length - 1;
+    updateBookChapter();
     [...chapterList.querySelectorAll("[data-chapter]")].forEach((el, idx) => {
       el.classList.toggle("is-active", idx === active);
       el.setAttribute("aria-current", idx === active ? "true" : "false");
@@ -81,7 +280,7 @@
     active = Math.min(data.chapters.length - 1, Math.max(0, Number(index)));
     renderReader();
     if (history.replaceState) history.replaceState(null, "", `#${data.chapters[active].id}`);
-    if (scroll) reader.scrollIntoView({behavior: scroll === "instant" ? "instant" : "smooth", block: "start"});
+    if (scroll || readerMode === "book") reader.scrollIntoView({behavior: scroll === "instant" || readerMode === "book" ? "instant" : "smooth", block: "start"});
   }
 
   chapterList.addEventListener("click", (evt) => {
@@ -90,6 +289,36 @@
   });
   $("#prev-chapter").addEventListener("click", () => chooseChapter(active - 1, "instant"));
   $("#next-chapter").addEventListener("click", () => chooseChapter(active + 1, "instant"));
+
+  $("#reader-mode-classic").addEventListener("click", () => setReaderMode("classic"));
+  $("#reader-mode-book").addEventListener("click", () => setReaderMode("book"));
+  $("#magic-book-open-button").addEventListener("click", openBook);
+  $("#magic-book-close-button").addEventListener("click", () => {
+    bookOpened = false;
+    bookCover.hidden = false;
+    bookOpenView.hidden = true;
+    bookCover.scrollIntoView({behavior:"instant",block:"start"});
+  });
+  $("#magic-book-prev-page").addEventListener("click", () => turnBookPage(-1));
+  $("#magic-book-next-page").addEventListener("click", () => turnBookPage(1));
+  $("#magic-book-prev-chapter").addEventListener("click", () => chooseChapter(active - 1, "instant"));
+  $("#magic-book-next-chapter").addEventListener("click", () => chooseChapter(active + 1, "instant"));
+
+  // Auf dem Handy links/rechts wischen, ohne vertikales Scrollen zu blockieren.
+  let touchStart = null;
+  bookSpread.addEventListener("touchstart", event => {
+    if (event.touches.length !== 1) return;
+    touchStart = {x:event.touches[0].clientX,y:event.touches[0].clientY};
+  }, {passive:true});
+  bookSpread.addEventListener("touchend", event => {
+    if (!touchStart || event.changedTouches.length !== 1) return;
+    const dx = event.changedTouches[0].clientX - touchStart.x;
+    const dy = event.changedTouches[0].clientY - touchStart.y;
+    touchStart = null;
+    if (Math.abs(dx) >= 70 && Math.abs(dx) > Math.abs(dy) * 1.6) turnBookPage(dx < 0 ? 1 : -1);
+  }, {passive:true});
+  window.addEventListener("resize", refreshBookPagination);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refreshBookPagination);
 
   function renderCharacters() {
     $("#characters").innerHTML = data.characters.map((c, index) => `
@@ -205,4 +434,5 @@
   const found = data.chapters.findIndex(c => c.id === hashId);
   if (found >= 0) active = found;
   renderReader();
+  setReaderMode(readerMode, false);
 })();

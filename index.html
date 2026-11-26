@@ -84,6 +84,14 @@
           <div class="sidebar-footnote"><span aria-hidden="true">✧</span> Neue Kapitel erscheinen nach jeder Spielrunde hier.</div>
         </aside>
         <article id="kapitel-leser" class="reader-card" tabindex="-1" aria-live="polite">
+          <div class="reader-mode-bar" aria-label="Lesemodus wählen">
+            <span class="reader-mode-caption"><span aria-hidden="true">✦</span> LESEMODUS</span>
+            <div class="reader-mode-switch" role="group" aria-label="Kapitelansicht">
+              <button type="button" class="reader-mode-button" id="reader-mode-classic" aria-pressed="true" aria-controls="reader-classic">☷ <span>Klassisch</span></button>
+              <button type="button" class="reader-mode-button" id="reader-mode-book" aria-pressed="false" aria-controls="magic-book">✧ <span>Magisches Buch</span></button>
+            </div>
+          </div>
+          <div id="reader-classic" class="reader-classic">
           <div class="reader-image-wrap">
             <img id="reader-image" class="reader-image" src="assets/chapters/prolog/cover.webp" alt="Waldhütte im Wald" width="1536" height="1024">
             <div class="reader-image-mark" id="reader-image-mark">PROLOG</div>
@@ -93,17 +101,21 @@
             <div class="reader-meta"><span id="reader-label">PROLOG</span><span class="meta-ornament" aria-hidden="true">✧</span><time id="reader-date">Vor Beginn der Kampagne</time></div>
             <h3 id="reader-title">Eine Hütte unter alten Bäumen</h3>
             <p class="reader-subtitle" id="reader-subtitle">Wo unsere Geschichte beginnt.</p>
+            <div id="classic-audio-slot">
             <section class="reader-audio" id="reader-audio-wrap" aria-label="Kapitel anhören" hidden>
               <div class="reader-audio-top"><span class="reader-audio-symbol" aria-hidden="true">♫</span><div><strong>Kapitel anhören</strong><span>Murtaghs Erzählung</span></div></div>
               <audio id="reader-audio" controls preload="none" aria-label="Kapitel als Hörfassung anhören">Dein Browser unterstützt die Audiowiedergabe nicht.</audio>
               <a id="reader-audio-download" class="reader-audio-download" href="#" download>MP3 herunterladen</a>
             </section>
+            </div>
             <div class="reader-divider" aria-hidden="true">✦</div>
             <div class="reader-prose" id="reader-prose"></div>
+            <div id="classic-gallery-slot">
             <section class="reader-gallery" id="reader-gallery" aria-label="Weitere Kapitelillustrationen" hidden>
               <h4>Weitere Szenenbilder</h4>
               <div id="reader-gallery-list" class="reader-gallery-list"></div>
             </section>
+            </div>
             <div class="reader-footer">
               <div class="reader-location"><span aria-hidden="true">⌖</span><span id="reader-location">Der tiefe Wald</span></div>
               <div class="reader-controls">
@@ -112,6 +124,48 @@
               </div>
             </div>
           </div>
+          </div><!-- /reader-classic -->
+          <section id="magic-book" class="magic-book" aria-label="Magisches Tagebuch" hidden>
+            <div class="magic-book-audio-slot" id="magic-book-audio-slot"></div>
+            <div class="magic-book-stage">
+              <div class="magic-book-cover" id="magic-book-cover">
+                <div class="magic-book-cover-inside">
+                  <div class="magic-book-cover-sigil" aria-hidden="true">✦</div>
+                  <span class="magic-book-cover-eyebrow">MURTAGHS AUFZEICHNUNGEN</span>
+                  <span class="magic-book-cover-label" id="magic-book-cover-label">PROLOG</span>
+                  <div class="magic-book-cover-image-wrap"><img id="magic-book-cover-image" src="assets/chapters/prolog/cover.webp" alt="" loading="lazy"></div>
+                  <h3 id="magic-book-cover-title">Eine Hütte unter alten Bäumen</h3>
+                  <p id="magic-book-cover-subtitle"></p>
+                  <button type="button" id="magic-book-open-button" class="magic-book-open-button">Kapitel aufschlagen <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
+              <div class="magic-book-open" id="magic-book-open" hidden>
+                <div class="magic-book-open-top">
+                  <span class="magic-book-open-ornament" aria-hidden="true">✦ M ✦</span>
+                  <button type="button" id="magic-book-close-button" class="magic-book-close-button">← Zum Bucheinband</button>
+                </div>
+                <div class="magic-book-spread" id="magic-book-spread" role="region" aria-label="Buchseiten">
+                  <section class="magic-book-page magic-book-page-left" id="magic-book-page-left" aria-label="Linke Buchseite"></section>
+                  <section class="magic-book-page magic-book-page-right" id="magic-book-page-right" aria-label="Rechte Buchseite"></section>
+                </div>
+                <div class="magic-book-measure magic-book-page" id="magic-book-measure" aria-hidden="true">
+                  <div class="magic-book-page-top">DIE CHRONIK DER VIER GEFÄHRTEN</div>
+                  <div class="magic-book-page-body" id="magic-book-measure-body"></div>
+                  <div class="magic-book-page-bottom">✦</div>
+                </div>
+                <div class="magic-book-page-controls">
+                  <button type="button" id="magic-book-prev-page" class="magic-book-page-button" aria-label="Vorherige Buchseite">← Zurückblättern</button>
+                  <span id="magic-book-page-status" class="magic-book-page-status" role="status" aria-live="polite"></span>
+                  <button type="button" id="magic-book-next-page" class="magic-book-page-button" aria-label="Nächste Buchseite">Weiterblättern →</button>
+                </div>
+              </div>
+            </div>
+            <div class="magic-book-gallery-slot" id="magic-book-gallery-slot"></div>
+            <nav class="magic-book-chapter-controls" aria-label="Kapitel wechseln">
+              <button type="button" id="magic-book-prev-chapter">← Vorheriges Kapitel</button>
+              <button type="button" id="magic-book-next-chapter">Nächstes Kapitel →</button>
+            </nav>
+          </section>
         </article>
       </div>
     </section>
